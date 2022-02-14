@@ -1,0 +1,108 @@
+:root{
+    --color-azul--oscuro:#1E3253;
+    --color-celeste--claro:#E2E8F3;
+    --color-blanco--oscuro:#FCFCFC;
+    --color-azul:#406CB2;
+    --color-label:#3D82F3;
+    --color-rojo:#EB5757;
+    --color-celeste:#CFDAEC;
+    --color-negro:#2222;
+    --color-blanco:#ffff;
+    --color-boton-azul:#1166F1;
+    --color-sombra-boton-azul:#1166F125;
+    --font-family: 'Roboto', sans-serif;
+}
+body{
+    background:var(--color-celeste--claro);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 32px 16px;
+    font-family: var(--font-family);
+}
+button{
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    letter-spacing: 1.25px;
+    transition: .1s ease-in-out;
+    cursor: pointer;
+    :active{
+        outline: none;
+    }
+}
+.btn-prin{
+    background: var(--color-boton-azul);
+    color:var(--color-celeste--claro);
+    box-shadow: 0 4px 10px var(--color-sombra-boton-azul);
+}
+.btn-sec{
+    background: var(--color-blanco);
+    color: var(--color-azul--oscuro);
+    border: 1px solid var(--color-azul--oscuro);
+    box-shadow: 0 4px 10px var(--color-sombra-boton-azul);
+}
+.btn-ter{
+    color: var(--color-azul);
+    background: var(--color-blanco--oscuro);
+    border: 1px solid var(--color-celeste--claro);
+    box-shadow: 0 4px 10px var(--color-sombra-boton-azul);
+}
+.btn-desplegar{
+    background: transparent;
+}
+.btn-eliminar{
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    background: var(--color-rojo);
+}
+.btn-aumentar,.btn-disminuir{
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    background: var(--color-blanco--oscuro);
+    &:hover,&:active{
+        background: var(--color-sombra-boton-azul);
+    }
+}
+
+.btn-close{
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+    background: var(--color-celeste--claro);
+    &:hover,&:active{
+        background: var(--color-celeste);
+    }
+}
+
+.container{
+    background: var(--color-blanco);
+    border-radius: 20px;
+    padding: 16px 32px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    align-items: center;
+    position: relative;
+    gap: 16px;
+}
+.form-header{
+    padding: 8px;
+    img{
+        height: 36px;
+    }
+}

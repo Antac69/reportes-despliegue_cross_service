@@ -66,7 +66,7 @@
     <link rel="stylesheet" href="./css/styles-RD.css" />
   </head>
   <body>
-    <h1 class="">Reportes despliegue</h1>
+    <h1 class="title-pag">Reportes despliegue</h1>
     <main class="container">
       <header class="form-header">
         <img
@@ -74,151 +74,150 @@
           alt="logo"
         />
       </header>
-      <section class="formulario-1">
-        <div class="container_input-flotante">
-          <input type="text" class="input-text" id="titulo" />
-          <label for="titulo">Titulo</label>
-        </div>
-        <div class="container_input-flotante">
-          <input type="date" class="input-text" id="fecha" />
-          <label for="fecha">Fecha</label>
-        </div>
-        <div class="container_input-flotante">
-          <input type="text" class="input-text" id="ruta" />
-          <label for="ruta">Ruta de Despliegue</label>
-        </div>
-        <div class="container_input-flotante">
-          <select aria-label="tipo de plan" id="tipo-plan">
-            <optgroup label="Tipo de plan">
-              <option value="plan swap">plan swap</option>
-              <option value="plan swap">plan swap</option>
-            </optgroup>
-          </select>
-          <label for="tipo-plan">Tipo de plan</label>
-        </div>
-        <div class="container_input-flotante">
-          <input type="text" class="input-text input-metraje" id="distancia" />
-          <label for="distancia">Distancia</label>
-        </div>
-        <div class="container-metraje">
+      <div class="container-formularios">
+        <section class="formulario-1">
           <div class="container_input-flotante">
-            <input type="text" class="input-text input-metraje" id="inicio" />
-            <label for="inicio">Inicio</label>
+            <input type="text" class="input-text" id="titulo" />
+            <label for="titulo">Titulo</label>
           </div>
           <div class="container_input-flotante">
-            <input type="text" class="input-text input-metraje" id="final" />
-            <label for="final">Final</label>
+            <input type="date" class="input-text" id="fecha" />
+            <label for="fecha">Fecha</label>
           </div>
-        </div>
-      </section>
-      <section class="formulario-2">
-        <div class="container-items" id="item-crucetas">
-          <button class="btn-desplegar">
-            <img src="" alt="" />
-          </button>
-          <div class="title-item">Crucetas o MUFAS</div>
-          <div class="container-acciones-item">
-            <button class="btn-agregar" id="btn-agregar">
-              Agregar
-            </button>
-            <div class="acciones">
-              <button class="btn-eliminar" id="btn-eliminar">
-                <img src="" alt="eliminar" />
-              </button>
-              <button class="btn-disminuir">
-                <img src="" alt="disminuir" />
-              </button>
-              <div class="unidades" id="unidades">
-                1
-              </div>
-              <button class="btn-aumentar">
-                <img src="" alt="aumentar" />
-              </button>
-            </div>
+          <div class="container_input-flotante">
+            <input type="text" class="input-text" id="ruta" />
+            <label for="ruta">Ruta de Despliegue</label>
           </div>
-          <div class="container-datos-items">
+          <div class="container_input-flotante">
+            <select aria-label="tipo de plan" id="tipo-plan">
+              <optgroup label="Tipo de plan">
+                <option value="plan swap">plan swap</option>
+                <option value="plan swap">plan swap</option>
+              </optgroup>
+            </select>
+            <label for="tipo-plan">Tipo de plan</label>
+          </div>
+          <div class="container_input-flotante">
+            <input type="text" class="input-text input-metraje" id="distancia" />
+            <label for="distancia">Distancia</label>
+          </div>
+          <div class="container-metraje">
             <div class="container_input-flotante">
-              <input type="text" class="input-text" id="item-unidad-1" />
-              <label for="item-unidad-1">Mufa 1</label>
-              <button class="btn-close">
-                <img src="" alt="btn-close" />
-              </button>
+              <input type="text" class="input-text input-metraje" id="inicio" />
+              <label for="inicio">Inicio</label>
             </div>
-          </div>
-        </div>
-        <div class="container-items" id="item-postes_instalados">
-          <button class="btn-desplegar">
-            <img src="" alt="" />
-          </button>
-          <div class="title-item">Postes instalados</div>
-          <div class="container-acciones-item">
-            <button class="btn-agregar" id="btn-agregar">
-              Agregar
-            </button>
-            <div class="acciones">
-              <button class="btn-eliminar" id="btn-eliminar">
-                <img src="" alt="eliminar" />
-              </button>
-              <button class="btn-disminuir">
-                <img src="" alt="disminuir" />
-              </button>
-              <div class="unidades" id="unidades">
-                1
-              </div>
-              <button class="btn-aumentar">
-                <img src="" alt="aumentar" />
-              </button>
-            </div>
-          </div>
-          <div class="container-datos-items">
             <div class="container_input-flotante">
-              <input type="text" class="input-text" id="item-unidad-1" />
-              <label for="item-unidad-1">Poste 1</label>
-              <button class="btn-close">
-                <img src="" alt="btn-close" />
-              </button>
+              <input type="text" class="input-text input-metraje" id="final" />
+              <label for="final">Final</label>
             </div>
           </div>
-        </div>
-        <div class="container-items" id="item-opgw">
-          <button class="btn-desplegar">
-            <img src="" alt="" />
-          </button>
-          <div class="title-item">Opgw</div>
-          <div class="container-acciones-item">
-            <button class="btn-agregar" id="btn-agregar">
-              Agregar
+        </section>
+        <section class="formulario-2">
+          <div class="container-items" id="item-crucetas">
+            <button class="btn-desplegar">
+              <img src="./img/icons/icon-drop.svg" alt="desplegar" />
             </button>
-            <div class="acciones">
-              <button class="btn-eliminar" id="btn-eliminar">
-                <img src="" alt="eliminar" />
+            <div class="title-item">Crucetas o MUFA</div>
+            <div class="container-acciones-item">
+              <button class="btn-agregar btn-ter" id="btn-agregar">
+                Agregar
               </button>
-              <button class="btn-disminuir">
-                <img src="" alt="disminuir" />
-              </button>
-              <div class="unidades" id="unidades">
-                1
+              <div class="acciones">
+                <button class="btn-eliminar" id="btn-eliminar">
+                  <img src="./img/icons/icon-trash.svg" alt="eliminar" />
+                </button>
+                <button class="btn-disminuir">
+                  <img src="./img/icons/icon-min.svg" alt="disminuir" />
+                </button>
+                <div class="unidades" id="unidades">
+                  1
+                </div>
+                <button class="btn-aumentar">
+                  <img src="./img/icons/icon-plus.svg" alt="aumentar" />
+                </button>
               </div>
-              <button class="btn-aumentar">
-                <img src="" alt="aumentar" />
-              </button>
+            </div>
+            <div class="container-datos-items">
+              <div class="container_input-flotante">
+                <input type="text" class="input-text" id="item-unidad-1" />
+                <label for="item-unidad-1">Mufa 1</label>
+                <button class="btn-close">
+                  <img src="./img/icons/icon-close.svg" alt="btn-close" />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="reporte">
-        <div class="container_textArea-flotante">
-          <textarea name="reporte" id="reporte" cols="30" rows="10"></textarea>
-        </div>
-      </section>
+          <div class="container-items" id="item-postes_instalados">
+            <button class="btn-desplegar">
+              <img src="./img/icons/icon-drop.svg" alt="desplegar" />
+            </button>
+            <div class="title-item">Postes instalados</div>
+            <div class="container-acciones-item">
+              <button class="btn-agregar btn-ter" id="btn-agregar">
+                Agregar
+              </button>
+              <div class="acciones">
+                <button class="btn-eliminar" id="btn-eliminar">
+                  <img src="./img/icons/icon-trash.svg" alt="eliminar" />
+                </button>
+                <button class="btn-disminuir">
+                  <img src="./img/icons/icon-min.svg" alt="disminuir" />
+                </button>
+                <div class="unidades" id="unidades">
+                  1
+                </div>
+                <button class="btn-aumentar">
+                  <img src="./img/icons/icon-plus.svg" alt="aumentar" />
+                </button>
+              </div>
+            </div>
+            <div class="container-datos-items">
+              <div class="container_input-flotante">
+                <input type="text" class="input-text" id="item-unidad-1" />
+                <label for="item-unidad-1">Poste 1</label>
+                <button class="btn-close">
+                  <img src="./img/icons/icon-close.svg" alt="btn-close" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="container-items" id="item-opgw">
+            <div class="title-item">Opgw</div>
+            <div class="container-acciones-item">
+              <button class="btn-agregar btn-ter" id="btn-agregar">
+                Agregar
+              </button>
+              <div class="acciones">
+                <button class="btn-eliminar" id="btn-eliminar">
+                  <img src="./img/icons/icon-trash.svg" alt="eliminar" />
+                </button>
+                <button class="btn-disminuir">
+                  <img src="./img/icons/icon-min.svg" alt="disminuir" />
+                </button>
+                <div class="unidades" id="unidades">
+                  1
+                </div>
+                <button class="btn-aumentar">
+                  <img src="./img/icons/icon-plus.svg" alt="aumentar" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="reporte">
+          <div class="container_textArea-flotante">
+            <textarea name="reporte" id="reporte" cols="30" rows="10"></textarea>
+          </div>
+        </section>
+      </div>
       <footer class="form-footer-botones">
-        <button class="btn-prin">siguiente</button>
+        <button class="btn-prin">Siguiente</button>
         <div class="container_botones_form-2">
-          <button class="btn-prin">anterior</button>
-          <button class="btn-prin">siguiente</button>
+          <button class="btn-sec">Retroceder</button>
+          <button class="btn-prin">Siguiente</button>
         </div>
         <div class="container_botones_form-2">
-          <button class="btn-prin">Editar</button>
+          <button class="btn-sec">Editar</button>
           <button class="btn-prin">Guardar</button>
         </div>
       </footer>

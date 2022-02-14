@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reportes despliegue</title>
+    <link rel="stylesheet" href="https://crosservice.pe/css/normalize.css" />
+    <link
+      rel="stylesheet"
+      href="https://www.crosservice.pe/css/normalize.css"
+    />
+    <link rel="stylesheet" href="https://www.crosservice.pe/css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://www.crosservice.pe/imgs/favicon.png"
+      type="image/x-icon"
+    />
+    <meta
+      name="description"
+      content="Cross Service es una empresa lider en la calidad de sus productos y servicios. En proceso de expansión a nivel nacional brindan soluciones en Servicios de Ingeniería e Infraestructura. Conocimientos y técnicas garantizan puntualidad, calidad y responsabilidad en sus compromisos, asumiéndolos como suyos."
+    />
+    <meta name="language" content="es-pe" />
+    <meta name="author" content="CROSS SERVICE E.I.R.L." />
+    <meta name="copyright" content="CROSS SERVICE E.I.R.L." />
+    <meta name="distribution" content="Global" />
+    <meta name="organization" content="CROSS SERVICE E.I.R.L." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="Cross Service" />
+    <meta name="twitter:creator" content="CROSS SERVICE E.I.R.L." />
+    <meta name="twitter:title" content="Cross Service" />
+    <meta
+      name="twitter:description"
+      content="Cross Service es una empresa lider en la calidad de sus productos y servicios. En proceso de expansión a nivel nacional brindan soluciones en Servicios de Ingeniería e Infraestructura. Conocimientos y técnicas garantizan puntualidad, calidad y responsabilidad en sus compromisos, asumiéndolos como suyos."
+    />
+    <meta
+      name="twitter:image"
+      content="https://www.crosservice.pe/imgs/card-image.png"
+    />
+
+    <meta property="og:title" content="Cross Service" />
+    <meta
+      name="og:description"
+      content="Cross Service es una empresa lider en la calidad de sus productos y servicios. En proceso de expansión a nivel nacional brindan soluciones en Servicios de Ingeniería e Infraestructura. Conocimientos y técnicas garantizan puntualidad, calidad y responsabilidad en sus compromisos, asumiéndolos como suyos."
+    />
+    <meta
+      name="og:image"
+      content="https://www.crosservice.pe/imgs/card-image.png"
+    />
+    <meta property="og:url" content="https://www.crosservice.pe" />
+    <meta property="og:site_name" content="Cross Service" />
+    <meta property="og:locale" content="es_LA" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Cross Service es una empresa lider en la calidad de sus productos y servicios. En proceso de expansión a nivel nacional brindan soluciones en Servicios de Ingeniería e Infraestructura. Conocimientos y técnicas garantizan puntualidad, calidad y responsabilidad en sus compromisos, asumiéndolos como suyos."
+    />
+    <meta property="og:site_name" content="Cross Service" />
+    <link rel="canonical" href="https://www.crosservice.pe" />
+    <link rel="stylesheet" href="./css/styles-RD.css" />
+  </head>
+  <body>
+    <h1 class="">Reportes despliegue</h1>
+    <main class="container">
+      <header class="form-header">
+        <img src="https://crosservice.pe/imgs/Logo_CrossService.svg" alt="logo" />
+      </header>
+      <section class="formulario-1">
+        <div class="container_input-flotante">
+          <input type="text" class="input-text" id="titulo" />
+          <label for="titulo">Titulo</label>
+        </div>
+        <div class="container_input-flotante">
+          <input type="date" class="input-text" id="fecha" />
+          <label for="fecha">Fecha</label>
+        </div>
+        <div class="container_input-flotante">
+          <input type="text" class="input-text" id="ruta" />
+          <label for="ruta">Ruta de Despliegue</label>
+        </div>
+        <div class="container_input-flotante">
+          <select aria-label="tipo de plan" id="tipo-plan">
+            <optgroup label="Tipo de plan">
+              <option value="plan swap">plan swap</option>
+              <option value="plan swap">plan swap</option>
+            </optgroup>
+          </select>
+          <label for="tipo-plan">Tipo de plan</label>
+        </div>
+        <div class="container_input-flotante">
+          <input type="text" class="input-text input-metraje" id="distancia"/>
+          <label for="distancia">Distancia</label>
+        </div>
+        <div class="container-metraje">
+          <div class="container_input-flotante">
+            <input type="text" class="input-text input-metraje" id="inicio"/>
+            <label for="inicio">Inicio</label>
+          </div>
+          <div class="container_input-flotante">
+            <input type="text" class="input-text input-metraje" id="final"/>
+            <label for="final">Final</label>
+          </div>
+        </div>
+      </section>
+      <section class="formulario-2">
+        <div class="container_input-flotante">
+          <input type="text" class="input-text" id="titulo" />
+          <label for="titulo">Titulo</label>
+        </div>
+      </section>
+      <section class="reporte">
+        <div class="container_textArea-flotante">
+          <textarea name="reporte" id="reporte" cols="30" rows="10"></textarea>
+        </div>
+      </section>
+      <footer class="form-footer-botones">
+        <button class="btn-prin">
+          siguiente
+        </button>
+        <div class="container_botones_form-2">
+          <button class="btn-prin">
+            anterior
+          </button>
+          <button class="btn-prin">
+            siguiente
+          </button>
+        </div>
+        <div class="container_botones_form-2">
+          <button class="btn-prin">
+            Editar
+          </button>
+          <button class="btn-prin">
+            Guardar
+          </button>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -69,7 +69,10 @@
     <h1 class="">Reportes despliegue</h1>
     <main class="container">
       <header class="form-header">
-        <img src="https://crosservice.pe/imgs/Logo_CrossService.svg" alt="logo" />
+        <img
+          src="https://crosservice.pe/imgs/Logo_CrossService.svg"
+          alt="logo"
+        />
       </header>
       <section class="formulario-1">
         <div class="container_input-flotante">
@@ -94,24 +97,113 @@
           <label for="tipo-plan">Tipo de plan</label>
         </div>
         <div class="container_input-flotante">
-          <input type="text" class="input-text input-metraje" id="distancia"/>
+          <input type="text" class="input-text input-metraje" id="distancia" />
           <label for="distancia">Distancia</label>
         </div>
         <div class="container-metraje">
           <div class="container_input-flotante">
-            <input type="text" class="input-text input-metraje" id="inicio"/>
+            <input type="text" class="input-text input-metraje" id="inicio" />
             <label for="inicio">Inicio</label>
           </div>
           <div class="container_input-flotante">
-            <input type="text" class="input-text input-metraje" id="final"/>
+            <input type="text" class="input-text input-metraje" id="final" />
             <label for="final">Final</label>
           </div>
         </div>
       </section>
       <section class="formulario-2">
-        <div class="container_input-flotante">
-          <input type="text" class="input-text" id="titulo" />
-          <label for="titulo">Titulo</label>
+        <div class="container-items" id="item-crucetas">
+          <button class="btn-desplegar">
+            <img src="" alt="" />
+          </button>
+          <div class="title-item">Crucetas o MUFAS</div>
+          <div class="container-acciones-item">
+            <button class="btn-agregar" id="btn-agregar">
+              Agregar
+            </button>
+            <div class="acciones">
+              <button class="btn-eliminar" id="btn-eliminar">
+                <img src="" alt="eliminar" />
+              </button>
+              <button class="btn-disminuir">
+                <img src="" alt="disminuir" />
+              </button>
+              <div class="unidades" id="unidades">
+                1
+              </div>
+              <button class="btn-aumentar">
+                <img src="" alt="aumentar" />
+              </button>
+            </div>
+          </div>
+          <div class="container-datos-items">
+            <div class="container_input-flotante">
+              <input type="text" class="input-text" id="item-unidad-1" />
+              <label for="item-unidad-1">Mufa 1</label>
+              <button class="btn-close">
+                <img src="" alt="btn-close" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="container-items" id="item-postes_instalados">
+          <button class="btn-desplegar">
+            <img src="" alt="" />
+          </button>
+          <div class="title-item">Postes instalados</div>
+          <div class="container-acciones-item">
+            <button class="btn-agregar" id="btn-agregar">
+              Agregar
+            </button>
+            <div class="acciones">
+              <button class="btn-eliminar" id="btn-eliminar">
+                <img src="" alt="eliminar" />
+              </button>
+              <button class="btn-disminuir">
+                <img src="" alt="disminuir" />
+              </button>
+              <div class="unidades" id="unidades">
+                1
+              </div>
+              <button class="btn-aumentar">
+                <img src="" alt="aumentar" />
+              </button>
+            </div>
+          </div>
+          <div class="container-datos-items">
+            <div class="container_input-flotante">
+              <input type="text" class="input-text" id="item-unidad-1" />
+              <label for="item-unidad-1">Poste 1</label>
+              <button class="btn-close">
+                <img src="" alt="btn-close" />
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="container-items" id="item-opgw">
+          <button class="btn-desplegar">
+            <img src="" alt="" />
+          </button>
+          <div class="title-item">Opgw</div>
+          <div class="container-acciones-item">
+            <button class="btn-agregar" id="btn-agregar">
+              Agregar
+            </button>
+            <div class="acciones">
+              <button class="btn-eliminar" id="btn-eliminar">
+                <img src="" alt="eliminar" />
+              </button>
+              <button class="btn-disminuir">
+                <img src="" alt="disminuir" />
+              </button>
+              <div class="unidades" id="unidades">
+                1
+              </div>
+              <button class="btn-aumentar">
+                <img src="" alt="aumentar" />
+              </button>
+            </div>
+          </div>
         </div>
       </section>
       <section class="reporte">
@@ -120,24 +212,14 @@
         </div>
       </section>
       <footer class="form-footer-botones">
-        <button class="btn-prin">
-          siguiente
-        </button>
+        <button class="btn-prin">siguiente</button>
         <div class="container_botones_form-2">
-          <button class="btn-prin">
-            anterior
-          </button>
-          <button class="btn-prin">
-            siguiente
-          </button>
+          <button class="btn-prin">anterior</button>
+          <button class="btn-prin">siguiente</button>
         </div>
         <div class="container_botones_form-2">
-          <button class="btn-prin">
-            Editar
-          </button>
-          <button class="btn-prin">
-            Guardar
-          </button>
+          <button class="btn-prin">Editar</button>
+          <button class="btn-prin">Guardar</button>
         </div>
       </footer>
     </main>

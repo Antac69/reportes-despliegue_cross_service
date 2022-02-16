@@ -97,24 +97,24 @@
             </select>
             <label for="tipo-plan">Tipo de plan</label>
           </div>
-          <div class="container_input-flotante">
+          <div class="container_input-flotante input--metraje">
             <input
               type="number"
               pattern="\D"
               min="1"
-              class="input-text input-metraje"
+              class="input-text "
               id="distancia"
               required
             />
             <label for="distancia">Distancia</label>
           </div>
           <div class="container-metraje">
-            <div class="container_input-flotante">
-              <input type="number" min="1" class="input-text input-metraje" id="inicio" required/>
+            <div class="container_input-flotante input--metraje">
+              <input type="number" min="1" class="input-text" id="inicio" required/>
               <label for="inicio">Inicio</label>
             </div>
-            <div class="container_input-flotante">
-              <input type="number" min="1" class="input-text input-metraje" id="final" required/>
+            <div class="container_input-flotante input--metraje">
+              <input type="number" min="1" class="input-text" id="final" required/>
               <label for="final">Final</label>
             </div>
           </div>
@@ -145,8 +145,8 @@
               </div>
             </div>
             <div class="container-datos-items">
-              <div class="container_input-flotante">
-                <input type="text" pattern="\d+" class="input-text" id="item-unidad-1" />
+              <div class="container_input-flotante input--item">
+                <input type="text" pattern="\*+" class="input-text" id="item-unidad-1" />
                 <label for="item-unidad-1">Mufa 1</label>
                 <button class="btn-close">
                   <img src="./img/icons/icon-close.svg" alt="btn-close" />
@@ -179,7 +179,7 @@
               </div>
             </div>
             <div class="container-datos-items">
-              <div class="container_input-flotante">
+              <div class="container_input-flotante input--item">
                 <input type="text" class="input-text" id="item-unidad-1" />
                 <label for="item-unidad-1">Poste 1</label>
                 <button class="btn-close">

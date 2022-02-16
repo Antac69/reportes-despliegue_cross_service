@@ -229,12 +229,41 @@ button:active img {
   transition: 0.2s ease-in-out;
 }
 
-[type="number"]:valid + label {
+input[type="number"] {
+  position: relative;
+}
+
+input[type="number"]:valid + label, input[type="number"]:focus + label {
   padding-top: 4px;
   font-size: 12px;
   color: var(--color-label);
 }
 
+.input--metraje::after {
+  position: absolute;
+  content: '.m';
+  display: block;
+  z-index: 10;
+  color: var(--color-celeste);
+  background: white;
+  height: 30px;
+  width: 30px;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  right: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+/* quitar estilo de input number */
 /* botones para agregar items */
 .acciones {
   display: -webkit-box;
@@ -273,6 +302,22 @@ button:active img {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: end;
+}
+
+/* inputs items */
+.input--item {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.input--item .btn-close {
+  position: absolute;
+  right: 8px;
 }
 
 /* botones del footer */

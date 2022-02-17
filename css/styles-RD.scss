@@ -60,6 +60,14 @@ button {
     }
   }
 }
+/* titulo */
+.title-pag{
+  font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+margin-top: 0;
+}
 .btn-prin {
   background: var(--color-boton-azul);
   color: var(--color-celeste--claro);
@@ -209,6 +217,9 @@ input[type="number"] {
   display: flex;
   justify-content: space-around;
   gap: 0.75rem;
+  > div{
+    flex: 1;
+  }
 }
 /* quitar estilo de input number */
 /* botones para agregar items */
@@ -281,7 +292,7 @@ textarea {
   grid-row-gap: 1rem;
 }
 .container-formularios {
-  width: calc(100vw - 92px);
+  width: calc(100vw - 96px);
   overflow: hidden;
 }
 .container-formularios--movimiento {
@@ -305,7 +316,7 @@ textarea {
   }
 }
 .container-botones-footer {
-  width: calc(100vw - 92px);
+  width: calc(100vw - 96px);
   overflow-x: hidden;
 }
 .container-botones-footer--movimiento {

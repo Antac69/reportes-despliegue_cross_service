@@ -90,6 +90,15 @@ button:active img {
           transform: scale(0.9);
 }
 
+/* titulo */
+.title-pag {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  margin-top: 0;
+}
+
 .btn-prin {
   background: var(--color-boton-azul);
   color: var(--color-celeste--claro);
@@ -280,6 +289,12 @@ input[type="number"]:focus + label {
   gap: 0.75rem;
 }
 
+.container-metraje > div {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
 /* quitar estilo de input number */
 /* botones para agregar items */
 .acciones {
@@ -380,7 +395,7 @@ textarea {
 }
 
 .container-formularios {
-  width: calc(100vw - 92px);
+  width: calc(100vw - 96px);
   overflow: hidden;
 }
 
@@ -423,7 +438,7 @@ textarea {
 }
 
 .container-botones-footer {
-  width: calc(100vw - 92px);
+  width: calc(100vw - 96px);
   overflow-x: hidden;
 }
 

@@ -103,7 +103,7 @@
                 type="number"
                 pattern="\D"
                 min="1"
-                class="input-text "
+                class="input-text"
                 id="distancia"
                 required
               />
@@ -111,11 +111,23 @@
             </div>
             <div class="container-metraje">
               <div class="container_input-flotante input--metraje">
-                <input type="number" min="1" class="input-text" id="inicio" required/>
+                <input
+                  type="number"
+                  min="1"
+                  class="input-text"
+                  id="inicio"
+                  required
+                />
                 <label for="inicio">Inicio</label>
               </div>
               <div class="container_input-flotante input--metraje">
-                <input type="number" min="1" class="input-text" id="final" required/>
+                <input
+                  type="number"
+                  min="1"
+                  class="input-text"
+                  id="final"
+                  required
+                />
                 <label for="final">Final</label>
               </div>
             </div>
@@ -123,7 +135,7 @@
           <section class="formulario-2">
             <div class="container-items" id="item-crucetas">
               <div class="item">
-                <button class="btn-desplegar">
+                <button class="btn-desplegar active">
                   <img src="./img/icons/icon-drop.svg" alt="desplegar" />
                 </button>
                 <div class="title-item">Crucetas o MUFA</div>
@@ -147,8 +159,13 @@
               </div>
               <div class="container-datos-items">
                 <div class="container_input-flotante input--item">
-                  <input type="text" pattern="\*+" class="input-text" id="item-unidad-1" />
-                  <label for="item-unidad-1">Mufa 1</label>
+                  <input
+                    type="text"
+                    pattern="\*+"
+                    class="input-text"
+                    id="item-unidad-mufa-1"
+                  />
+                  <label for="item-unidad-mufa-1">Mufa 1</label>
                   <button class="btn-close">
                     <img src="./img/icons/icon-close.svg" alt="btn-close" />
                   </button>
@@ -157,7 +174,7 @@
             </div>
             <div class="container-items" id="item-postes_instalados">
               <div class="item">
-                <button class="btn-desplegar">
+                <button class="btn-desplegar active">
                   <img src="./img/icons/icon-drop.svg" alt="desplegar" />
                 </button>
                 <div class="title-item">Postes instalados</div>
@@ -181,8 +198,13 @@
               </div>
               <div class="container-datos-items">
                 <div class="container_input-flotante input--item">
-                  <input type="text" class="input-text" id="item-unidad-1" />
-                  <label for="item-unidad-1">Poste 1</label>
+                  <input
+                    type="text"
+                    pattern="\*+"
+                    class="input-text"
+                    id="item-unidad-poste-1"
+                  />
+                  <label for="item-unidad-poste-1">Poste 1</label>
                   <button class="btn-close">
                     <img src="./img/icons/icon-close.svg" alt="btn-close" />
                   </button>
@@ -192,8 +214,7 @@
             <div class="container-items" id="item-opgw">
               <div class="item">
                 <div class="title-item">Opgw</div>
-                <div class="container-acciones-item">
-              </div>
+                <div class="container-acciones-item"></div>
                 <button class="btn-agregar btn-ter" id="btn-agregar">
                   Agregar
                 </button>
@@ -242,5 +263,6 @@
         </div>
       </footer>
     </main>
+    <script src="./js/app.js"></script>
   </body>
 </html>

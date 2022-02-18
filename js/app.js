@@ -7,6 +7,7 @@ const btn_back = document.getElementById('btn-retro');
 const btn_edit = document.getElementById('btn-editar');
 const btn_save = document.getElementById('btn-save');
 const report_area = document.getElementById('reporte');
+const items_container = document.querySelectorAll('.container-items');
 let pag = 0;
 
 /* funciones  reutilizables*/
@@ -30,8 +31,20 @@ const copiarPortapapeles =()=> {
     btn_save.focus()
 };
 
+/* eventos */
 btn1.addEventListener('click',nextPag)
 btn2.addEventListener('click',nextPag)
 btn_back.addEventListener('click',backPag)
 btn_edit.addEventListener('click',backPag)
 btn_save.addEventListener('click',copiarPortapapeles)
+/* desplegar items */
+let prueba ;
+items_container.forEach(e=>{
+    e.addEventListener('click',(e)=>{
+        if (e.target.classList.contains('btn-desplegar')){
+            const header_item = e.target.parentElement;
+            header_item.classList.toggle('active');
+/*             console.log(header_item); */
+        }
+    })
+})

@@ -90,6 +90,10 @@ button:active img {
           transform: scale(0.9);
 }
 
+button img {
+  pointer-events: none;
+}
+
 /* titulo */
 .title-pag {
   font-style: normal;
@@ -311,7 +315,8 @@ input[type="number"]:focus + label {
 
 .container-items .item {
   padding-bottom: 1rem;
-  /*     background: var(--color-blanco); */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(35%, var(--color-blanco)), color-stop(35%, transparent));
+  background: linear-gradient(var(--color-blanco) 35%, transparent 35%);
 }
 
 .container-items .item.active .btn-desplegar img {
@@ -320,9 +325,10 @@ input[type="number"]:focus + label {
 }
 
 .container-items .item.active + .container-datos-items {
-  top: 0;
+  top: 100%;
   opacity: 1;
   position: relative;
+  z-index: initial;
 }
 
 /* botones para agregar items */
@@ -391,7 +397,7 @@ input[type="number"]:focus + label {
           flex-direction: column;
   gap: 1rem;
   position: absolute;
-  top: -100%;
+  top: 0;
   right: 0;
   left: 0;
   opacity: 0;

@@ -18,9 +18,9 @@
 %label-style {
   font-style: normal;
   font-weight: normal;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.4px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  letter-spacing: 0.025rem;
   color: var(--color-label);
 }
 body {
@@ -29,26 +29,26 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 32px 16px;
+  padding: 2rem 1rem;
   font-family: var(--font-family);
 }
 /* botones */
 button {
-  padding: 8px 16px;
-  border-radius: 5px;
-  border: 1px transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3125rem;
+  border: 0.0625rem transparent;
   outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 32px;
+  min-height: 2rem;
   font-family: var(--font-family);
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 0.875rem;
+  line-height: 1rem;
   text-align: center;
-  letter-spacing: 1.25px;
+  letter-spacing: 0.078125rem;
   transition: 0.2s ease-in-out;
   width: max-content;
   height: max-content;
@@ -67,15 +67,15 @@ button {
 .title-pag {
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 1.5rem;
+  line-height: 1.75rem;
   margin-top: 0;
 }
 .btn-prin {
   background: var(--color-boton-azul);
   color: var(--color-celeste--claro);
-  box-shadow: 0 4px 10px var(--color-sombra-boton-azul);
-  border: 1px solid var(--color-boton-azul);
+  box-shadow: 0 0.25rem 0.625rem var(--color-sombra-boton-azul);
+  border: 0.0625rem solid var(--color-boton-azul);
   &:active {
     background: var(--color-label);
   }
@@ -83,8 +83,8 @@ button {
 .btn-sec {
   background: var(--color-blanco);
   color: var(--color-azul--oscuro);
-  border: 1px solid var(--color-azul--oscuro);
-  box-shadow: 0 4px 10px var(--color-sombra-boton-azul);
+  border: 0.0625rem solid var(--color-azul--oscuro);
+  box-shadow: 0 0.25rem 0.625rem var(--color-sombra-boton-azul);
   &:active {
     background: var(--color-azul--oscuro);
     color: var(--color-blanco);
@@ -93,8 +93,8 @@ button {
 .btn-ter {
   color: var(--color-azul);
   background: var(--color-blanco--oscuro);
-  border: 1px solid var(--color-celeste--claro);
-  box-shadow: 0 4px 10px var(--color-sombra-boton-azul);
+  border: 0.0625rem solid var(--color-celeste--claro);
+  box-shadow: 0 0.25rem 0.625rem var(--color-sombra-boton-azul);
   &:active {
     background-color: var(--color-celeste--claro);
     color: var(--color-azul--oscuro);
@@ -114,15 +114,15 @@ button {
 }
 .btn-eliminar {
   border-radius: 50%;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
   background: var(--color-rojo);
 }
 .btn-aumentar,
 .btn-disminuir {
   border-radius: 50%;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
   background: var(--color-blanco--oscuro);
   &:hover,
   &:active {
@@ -132,8 +132,8 @@ button {
 
 .btn-close {
   border-radius: 50%;
-  height: 32px;
-  width: 32px;
+  height: 2rem;
+  width: 2rem;
   background: var(--color-celeste--claro);
   &:hover,
   &:active {
@@ -143,33 +143,36 @@ button {
 /* input */
 .container {
   background: var(--color-blanco);
-  border-radius: 20px;
-  padding: 16px 32px;
+  border-radius: 1.25rem;
+  padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   align-items: center;
   position: relative;
-  gap: 16px;
+  gap: 1rem;
 }
 /* logo */
 .form-header {
-  padding: 8px;
+  padding: 0.5rem;
   img {
-    height: 36px;
+    height: 2.25rem;
   }
 }
 /* inputs */
+#ruta{
+  text-transform: uppercase;
+}
 .container_input-flotante {
   position: relative;
   display: flex;
   input {
-    width: calc(100% - 24px);
-    border: 2px solid;
-    border-radius: 4px;
-    padding: 10px;
-    padding-bottom: 4px;
-    padding-top: 16px;
+    width: calc(100% - 1.5rem);
+    border: 0.125rem solid;
+    border-radius: 0.25rem;
+    padding: 0.625rem;
+    padding-bottom: 0.25rem;
+    padding-top: 1rem;
     &:focus,
     &:active {
       outline: none;
@@ -179,18 +182,18 @@ button {
   [type="text"] {
     &:focus + label,
     &:not(:valid) + label {
-      padding-top: 4px;
+      padding-top: 0.25rem;
       @extend %label-style;
     }
   }
   [type="date"] + label {
-    padding-top: 4px;
+    padding-top: 0.25rem;
     @extend %label-style;
   }
   label {
     position: absolute;
     z-index: 1;
-    padding: 12px;
+    padding: 0.75rem;
     transition: 0.2s ease-in-out;
   }
 }
@@ -198,7 +201,7 @@ input[type="number"] {
   position: relative;
   &:valid + label,
   &:focus + label {
-    padding-top: 4px;
+    padding-top: 0.25rem;
     @extend %label-style;
   }
 }
@@ -209,11 +212,11 @@ input[type="number"] {
   z-index: 10;
   color: var(--color-celeste);
   background: white;
-  height: 30px;
-  width: 30px;
+  height: 1.875rem;
+  width: 1.875rem;
   top: 50%;
   transform: translate(0, -50%);
-  right: 10px;
+  right: 0.625rem;
   display: flex;
   align-items: center;
   justify-content: end;
@@ -238,7 +241,7 @@ input[type="number"] {
     &.active {
       .btn-desplegar{
         img {
-          transform: translateX(5px) rotate(90deg);
+          transform: translateX(0.3125rem) rotate(90deg);
         }
       }
       &+ .container-datos-items{
@@ -256,11 +259,11 @@ input[type="number"] {
   display: flex;
   align-items: center;
   width: fit-content;
-  gap: 16px;
+  gap: 1rem;
   background: var(--color-blanco);
-  padding: 4px;
-  border-radius: 50px;
-  box-shadow: 0 4px 10px var(--color-sombra-boton-azul);
+  padding: 0.25rem;
+  border-radius: 3.125rem;
+  box-shadow: 0 0.25rem 0.625rem var(--color-sombra-boton-azul);
 }
 .item {
   display: flex;
@@ -279,7 +282,7 @@ input[type="number"] {
   display: flex;
   .btn-close {
     position: absolute;
-    right: 8px;
+    right: 0.5rem;
     top: 50%;
     transform: translateY(-50%);
   }
@@ -299,12 +302,12 @@ input[type="number"] {
 }
 select {
   width: calc(100%);
-  border: 2px solid;
-  border-radius: 4px;
-  padding: 10px;
-  padding-left: 8px;
-  padding-bottom: 4px;
-  padding-top: 16px;
+  border: 0.125rem solid;
+  border-radius: 0.25rem;
+  padding: 0.625rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.25rem;
+  padding-top: 1rem;
   position: relative;
   cursor: pointer;
   &:focus,
@@ -314,7 +317,7 @@ select {
   & + label {
     top: 0;
     position: absolute;
-    padding-top: 4px !important;
+    padding-top: 0.25rem !important;
     @extend %label-style;
   }
 }
@@ -323,14 +326,14 @@ select {
   height: 100%;
 }
 textarea {
-  width: calc(100% - 24px);
-  height: calc(100% - 24px);
-  border: 2px solid;
-  border-radius: 4px;
-  padding: 12px;
-  padding-left: 8px;
-  padding-bottom: 4px;
-  padding-top: 16px;
+  width: calc(100% - 1.5rem);
+  height: calc(100% - 1.5rem);
+  border: 0.125rem solid;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  padding-left: 0.5rem;
+  padding-bottom: 0.25rem;
+  padding-top: 1rem;
   position: relative;
   resize: none;
 }
@@ -341,14 +344,14 @@ textarea {
   grid-auto-rows: max-content;
 }
 .container-formularios {
-  width: calc(100vw - 96px);
+  width: calc(100vw - 6rem);
   overflow: hidden;
 }
 .container-formularios--movimiento {
   display: flex;
-  gap: 64px;
+  gap: 4rem;
   transition: 0.5s ease-in-out;
-  transform: translateX(calc(0 * (calc(-100% - 64px))));
+  transform: translateX(calc(0 * (calc(-100% - 4rem))));
   > section {
     min-width: 100%;
   }
@@ -366,15 +369,15 @@ textarea {
   }
 }
 .container-botones-footer {
-  width: calc(100vw - 96px);
+  width: calc(100vw - 6rem);
   overflow-x: hidden;
 }
 .container-botones-footer--movimiento {
   display: flex;
-  gap: 64px;
+  gap: 4rem;
   padding: 1rem 0;
   transition: 1s ease;
-  transform: translateX(calc(0 * (calc(-100% - 64px))));
+  transform: translateX(calc(0 * (calc(-100% - 4rem))));
   > section {
     min-width: 100%;
     display: flex;

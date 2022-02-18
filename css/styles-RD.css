@@ -152,11 +152,6 @@ button:active img {
           transform: scale(1);
 }
 
-.btn-desplegar.active img {
-  -webkit-transform: translateX(5px) rotate(90deg);
-          transform: translateX(5px) rotate(90deg);
-}
-
 .btn-eliminar {
   border-radius: 50%;
   height: 32px;
@@ -230,7 +225,7 @@ button:active img {
   width: calc(100% - 24px);
   border: 2px solid;
   border-radius: 4px;
-  padding: 12px;
+  padding: 10px;
   padding-bottom: 4px;
   padding-top: 16px;
 }
@@ -277,7 +272,7 @@ input[type="number"]:focus + label {
   top: 50%;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  right: 12px;
+  right: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -311,10 +306,23 @@ input[type="number"]:focus + label {
   height: -webkit-min-content;
   height: -moz-min-content;
   height: min-content;
+  position: relative;
 }
 
 .container-items .item {
   padding-bottom: 1rem;
+  /*     background: var(--color-blanco); */
+}
+
+.container-items .item.active .btn-desplegar img {
+  -webkit-transform: translateX(5px) rotate(90deg);
+          transform: translateX(5px) rotate(90deg);
+}
+
+.container-items .item.active + .container-datos-items {
+  top: 0;
+  opacity: 1;
+  position: relative;
 }
 
 /* botones para agregar items */
@@ -382,13 +390,21 @@ input[type="number"]:focus + label {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1rem;
+  position: absolute;
+  top: -100%;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+  z-index: -1;
 }
 
 select {
   width: calc(100%);
   border: 2px solid;
   border-radius: 4px;
-  padding: 12px;
+  padding: 10px;
   padding-left: 8px;
   padding-bottom: 4px;
   padding-top: 16px;

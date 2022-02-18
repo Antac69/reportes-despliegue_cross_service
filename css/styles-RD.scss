@@ -265,6 +265,8 @@ input[type="number"] {
 .item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   .container-acciones-item {
     display: flex;
     flex: 1;
@@ -377,5 +379,17 @@ textarea {
     min-width: 100%;
     display: flex;
     justify-content: center;
+  }
+}
+
+@media screen and(min-width:768px) {
+  .container {
+    width: 50vw;
+  }
+  .container-botones-footer {
+    width: 100%;
+  }
+  .container-formularios {
+    width: 100%;
   }
 }

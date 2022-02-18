@@ -360,6 +360,10 @@ input[type="number"]:focus + label {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
 }
 
 .item .container-acciones-item {
@@ -529,5 +533,17 @@ textarea {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 50vw;
+  }
+  .container-botones-footer {
+    width: 100%;
+  }
+  .container-formularios {
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=styles-RD.css.map */

@@ -118,7 +118,7 @@ btn2.addEventListener("click", async () => {
   report_area.value = `${reporte.titulo} ${reporte.fecha}
 Ruta de Despliegue: ${reporte.ruta} ${reporte.plan}
 Distancia: ${reporte.distancia} m
-Inicio: ${reporte.metrajeCable["inicio"]}m ${reporte.metrajeCable["final"]}m
+Inicio: ${reporte.metrajeCable["inicio"]}m Final:${reporte.metrajeCable["final"]}m
 Cantidad de Postes Utilizados: ${
   reporte.postesUsados + reporte.postesInstalados["cantidad"]
 }

@@ -61,12 +61,12 @@ button {
   }
 }
 /* titulo */
-.title-pag{
+.title-pag {
   font-style: normal;
-font-weight: normal;
-font-size: 24px;
-line-height: 28px;
-margin-top: 0;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  margin-top: 0;
 }
 .btn-prin {
   background: var(--color-boton-azul);
@@ -100,16 +100,16 @@ margin-top: 0;
 .btn-desplegar {
   background: transparent;
   padding-left: 0;
-  img{
-    transition: .3s ease-in-out;
+  img {
+    transition: 0.3s ease-in-out;
   }
   &:active {
     img {
       transform: scale(1);
     }
   }
-  &.active{
-    img{
+  &.active {
+    img {
       transform: translateX(5px) rotate(90deg);
     }
   }
@@ -225,15 +225,15 @@ input[type="number"] {
   display: flex;
   justify-content: space-around;
   gap: 0.75rem;
-  > div{
+  > div {
     flex: 1;
   }
 }
 /* quitar estilo de input number */
 /* container items */
-.container-items{
+.container-items {
   height: min-content;
-  .item{
+  .item {
     padding-bottom: 1rem;
   }
 }
@@ -268,7 +268,7 @@ input[type="number"] {
     transform: translateY(-50%);
   }
 }
-.container-datos-items{
+.container-datos-items {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -295,7 +295,7 @@ select {
   }
 }
 /* input text area reporte final */
-.container_textArea-flotante{
+.container_textArea-flotante {
   height: 100%;
 }
 textarea {
@@ -323,9 +323,9 @@ textarea {
 .container-formularios--movimiento {
   display: flex;
   gap: 64px;
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
   transform: translateX(calc(0 * (calc(-100% - 64px))));
-  > section{
+  > section {
     min-width: 100%;
   }
 }
@@ -349,9 +349,9 @@ textarea {
   display: flex;
   gap: 64px;
   padding: 1rem 0;
-  transition: .5 ease-in-out;
+  transition: 1s ease;
   transform: translateX(calc(0 * (calc(-100% - 64px))));
-  > section{
+  > section {
     min-width: 100%;
     display: flex;
     justify-content: center;

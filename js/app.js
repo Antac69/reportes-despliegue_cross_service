@@ -87,6 +87,7 @@ const acciones = {
 const cantidad_ferreteria = {
   "item-crucetas": (accion) => {
     const n = reporte.ferreteria.mufa.cantidad;
+    console.log(acciones["agregar"](n), 'soy reporte cantidad')
     reporte.ferreteria.mufa.cantidad = acciones[accion](n);
     return acciones[accion](n);
   },
@@ -117,12 +118,13 @@ const acciones_items = {
     btn.classList.add("d-none");
     /* constante de botones de accion */
     const header_item_accion = btn.parentElement.querySelector(".acciones");
+    console.log(header_item_accion)
     /* mostrando botones de accion */
     header_item_accion.classList.remove("d-none");
     /* definiendo cantidad */
     const items_nd = header_item_accion.querySelector("#unidades");
     /* opteniendo id del item */
-    const item = header_item_accion.parentElement.parentElement.id;
+    const item = header_item_accion.parentElement.parentElement.parentElement.id;
     items_nd.innerText = cantidad_ferreteria[item]("agregar");
   },
   "btn-aumentar": (btn) => {
@@ -136,14 +138,14 @@ const acciones_items = {
     /* definiendo cantidad */
     const items_nd = header_item_accion.querySelector("#unidades");
     /* opteniendo id del item */
-    const item = header_item_accion.parentElement.parentElement.id;
+    const item = header_item_accion.parentElement.parentElement.parentElement.id;
     items_nd.innerText = cantidad_ferreteria[item]("agregar");
   },
   "btn-disminuir": (btn) => {
     const header_item_accion = btn.parentElement;
     /* definiendo cantidad */
     const items_nd = header_item_accion.querySelector("#unidades");
-    const item = header_item_accion.parentElement.parentElement.id;
+    const item = header_item_accion.parentElement.parentElement.parentElement.id;
     if (parseInt(items_nd.innerText) >= 2) {
         items_nd.innerText = cantidad_ferreteria[item]("eliminar");
         if (parseInt(items_nd.innerText) == 1){

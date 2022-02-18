@@ -11,13 +11,24 @@ const items_container = document.querySelectorAll(".container-items");
 let pag = 0;
 /* reporte */
 /* funciones  reutilizables*/
-const calcPostes = (distancia) => Math.ceil(distancia / 35);
-const calcClevis = () => {};
-const calcPasantes = () => {};
-const calcPreformados = () => {};
-const calcCinta_bandi = () => {};
-const calcHebillas = () => {};
+/* calculos de reporte */
+const calcPostes = (distancia) => Math.ceil(distancia / 35.6);
+const calcClevis = (pasantes, preformados) =>
+  Math.ceil(pasantes + preformados * 2);
+const calcPasantes = (postesUsa, postesInsta = 0) =>
+  Math.ceil((postesUsa + postesInsta) * 0.4);
+const calcPreformados = (postesUsa, postesInsta = 0) =>
+  Math.ceil((postesUsa + postesInsta) * 0.6 * 2);
+const calcCinta_bandi = (postesUsa, postesInsta = 0) => {
+  const options = [1, 0.97, 1.1];
+  var rand = Math.floor(Math.random() * options.length);
+  var grosor = Math.ceil(options[rand]);
+  return (postesUsa + postesInsta) * grosor;
+};
+const calcHebillas = (postesUsa, postesInsta = 0) =>
+  (postesUsa + postesInsta) * 2;
 
+/* funciones de movimiento de formulario */
 const limitNext = () => (pag <= 1 ? pag++ : (pag = 2));
 const limitBack = () => (pag > 0 ? pag-- : (pag = 0));
 const move = () => {
@@ -55,7 +66,7 @@ const reporte = {
   },
   ferreteria: {
     opgw: 0,
-    clevis: calcClevis(this.postesUsados, this.postesInstalados),
+    clevis: calcClevis(this.pasantes, this.preformados),
     pasantes: calcPasantes(this.postesUsados, this.postesInstalados),
     preformados: calcPreformados(this.postesUsados, this.postesInstalados),
     cinta_bandi: calcCinta_bandi(this.postesUsados, this.postesInstalados),
@@ -127,12 +138,13 @@ const acciones_items = {
     header_item_accion.classList.remove("d-none");
     /* dando la cantidad de items */
     items_nd.innerText = cantidad_ferreteria[item]("agregar");
-    if(item == "item-crucetas" || item == "item-postes_instalados"){
-        const header_item_desplegar = btn.parentElement;
-        /* toggle para contraer y desplegar items */
-        header_item_desplegar.classList.add("active");
-        header_item_desplegar.parentElement.parentElement.querySelector('#btn-desplegar').classList.remove("d-none");
-        console.log('esta vacio')
+    if (item == "item-crucetas" || item == "item-postes_instalados") {
+      const header_item_desplegar = btn.parentElement;
+      /* toggle para contraer y desplegar items */
+      header_item_desplegar.classList.add("active");
+      header_item_desplegar.parentElement.parentElement
+        .querySelector("#btn-desplegar")
+        .classList.remove("d-none");
     }
   },
   "btn-aumentar": (btn) => {
@@ -173,23 +185,27 @@ const acciones_items = {
   },
   "btn-eliminar": (btn) => {
     /* constante de botones de accion */
-    const header_item_accion = btn.parentElement.parentElement.querySelector(".acciones");
+    const header_item_accion =
+      btn.parentElement.parentElement.querySelector(".acciones");
     /* opteniendo id del item */
-    const item = header_item_accion.parentElement.parentElement.parentElement.id;
-    console.log(header_item_accion,item)
+    const item =
+      header_item_accion.parentElement.parentElement.parentElement.id;
     /* definiendo cantidad de items*/
     const items_nd = btn.parentElement.querySelector("#unidades");
     items_nd.innerText = cantidad_ferreteria[item]("eliminar");
     /* mostrando boton agregar */
-    header_item_accion.parentElement.querySelector("#btn-agregar").classList.remove("d-none");
+    header_item_accion.parentElement
+      .querySelector("#btn-agregar")
+      .classList.remove("d-none");
     /* mostrando botones de accion */
     header_item_accion.classList.add("d-none");
-    if(item == "item-crucetas" || item == "item-postes_instalados"){
-        const header_item_desplegar = btn.parentElement;
-        /* toggle para contraer y desplegar items */
-        header_item_desplegar.classList.remove("active");
-        header_item_desplegar.parentElement.parentElement.querySelector('#btn-desplegar').classList.add("d-none");
-        console.log('esta vacio')
+    if (item == "item-crucetas" || item == "item-postes_instalados") {
+      const header_item_desplegar = btn.parentElement;
+      /* toggle para contraer y desplegar items */
+      header_item_desplegar.classList.remove("active");
+      header_item_desplegar.parentElement.parentElement
+        .querySelector("#btn-desplegar")
+        .classList.add("d-none");
     }
   },
 };

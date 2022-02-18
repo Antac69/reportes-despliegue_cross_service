@@ -59,18 +59,18 @@ const reporte = {
     inicio: 0,
     final: 0,
   },
-  postesUsados: calcPostes(this.distancia),
+  postesUsados: 0,
   postesInstalados: {
     cantidad: 0,
     cordenadasPostes: {},
   },
   ferreteria: {
     opgw: 0,
-    clevis: calcClevis(this.pasantes, this.preformados),
-    pasantes: calcPasantes(this.postesUsados, this.postesInstalados),
-    preformados: calcPreformados(this.postesUsados, this.postesInstalados),
-    cinta_bandi: calcCinta_bandi(this.postesUsados, this.postesInstalados),
-    hebillas: calcHebillas(this.postesUsados, this.postesInstalados),
+    clevis: 0,
+    pasantes: 0,
+    preformados: 0,
+    cinta_bandi: 0,
+    hebillas: 0,
     mufa: {
       cantidad: 0,
       cordenadasMufas: {},
@@ -79,8 +79,62 @@ const reporte = {
   },
 };
 /* eventos */
-btn1.addEventListener("click", nextPag);
-btn2.addEventListener("click", nextPag);
+const formulario = document.getElementById("formulario-1");
+btn1.addEventListener("click", () => {
+  nextPag();
+  reporte.titulo = formulario.querySelector("#titulo").value;
+  reporte.fecha = formulario.querySelector("#fecha").value;
+  reporte.ruta = formulario.querySelector("#ruta").value;
+  reporte.plan = formulario.querySelector("#tipo-plan").value;
+  reporte.distancia = formulario.querySelector("#distancia").value;
+  reporte.metrajeCable["inicio"] = formulario.querySelector("#inicio").value;
+  reporte.metrajeCable["final"] = formulario.querySelector("#final").value;
+  reporte.postesUsados = calcPostes(reporte.distancia);
+});
+btn2.addEventListener("click", async () => {
+  nextPag();
+  report_area.innerText = "";
+  reporte.ferreteria["pasantes"] = calcPasantes(
+    reporte.postesUsados,
+    reporte.postesInstalados["cantidad"]
+  );
+  reporte.ferreteria["preformados"] = calcPreformados(
+    reporte.postesUsados,
+    reporte.postesInstalados["cantidad"]
+  );
+  reporte.ferreteria["cinta_bandi"] = calcCinta_bandi(
+    reporte.postesUsados,
+    reporte.postesInstalados["cantidad"]
+  );
+  reporte.ferreteria["hebillas"] = calcHebillas(
+    reporte.postesUsados,
+    reporte.postesInstalados["cantidad"]
+  );
+  reporte.ferreteria["clevis"] = calcClevis(
+    reporte.ferreteria["pasantes"],
+    reporte.ferreteria["preformados"]
+  );
+
+  report_area.value = `${reporte.titulo} ${reporte.fecha}
+Ruta de Despliegue: ${reporte.ruta} ${reporte.plan}
+Distancia: ${reporte.distancia} m
+Inicio: ${reporte.metrajeCable["inicio"]}m ${reporte.metrajeCable["final"]}m
+Cantidad de Postes Utilizados: ${
+  reporte.postesUsados + reporte.postesInstalados["cantidad"]
+}
+Cantidad de Postes Instalados: ${reporte.postesInstalados["cantidad"]}
+Cantidad de Ferretería Instalada
+Opgw: ${reporte.ferreteria["opgw"]}
+Clevis: ${reporte.ferreteria["clevis"]}
+Pasantes: ${reporte.ferreteria["pasantes"]}
+Preformados: ${reporte.ferreteria["preformados"]}
+Cinta Bandit: ${reporte.ferreteria["cinta_bandi"]} m
+Hebillas: ${reporte.ferreteria["hebillas"]}
+Cruceta: ${reporte.ferreteria["mufa"]["cantidad"]}
+Cantidad de Retenidas Instaladas: ${
+  reporte.ferreteria["retenidasInstaladas"]
+}`;
+});
 btn_back.addEventListener("click", backPag);
 btn_edit.addEventListener("click", backPag);
 btn_save.addEventListener("click", copiarPortapapeles);

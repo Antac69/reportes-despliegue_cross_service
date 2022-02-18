@@ -329,6 +329,9 @@ input[type="number"]:focus + label {
   opacity: 1;
   position: relative;
   z-index: initial;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 /* botones para agregar items */
@@ -404,6 +407,7 @@ input[type="number"]:focus + label {
   -webkit-transition: all 1s ease;
   transition: all 1s ease;
   z-index: -1;
+  height: 0;
 }
 
 select {

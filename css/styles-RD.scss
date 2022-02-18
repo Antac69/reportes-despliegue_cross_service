@@ -246,6 +246,7 @@ input[type="number"] {
         opacity: 1;
         position: relative;
         z-index: initial;
+        height: max-content;
       }
     }
   }
@@ -292,6 +293,7 @@ input[type="number"] {
   opacity: 0;
   transition: all 1s ease;
   z-index: -1;
+  height: 0;
 }
 select {
   width: calc(100%);

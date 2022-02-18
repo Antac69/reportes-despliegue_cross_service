@@ -9,7 +9,37 @@ const btn_save = document.getElementById("btn-save");
 const report_area = document.getElementById("reporte");
 const items_container = document.querySelectorAll(".container-items");
 let pag = 0;
+/* reporte */
+const reporte = {
+    titulo: '',
+    fecha: '',
+    ruta: '',
+    plan: '',
+    distancia: 0,
+    metrajeCable:{
+        inicio:0,
+        final:0
+    },
+    postesUsados:calcPostes(this.distancia),
+    postesInsalados:{
+        cantidad: 0,
+        cordenadasPostes:{}
+    },
+    ferreteria:{
+        opgw : 0,
+        clevis: calcClevis(this.postesUsados,this.postesInsalados.cantidad),
+        pasantes: calcPasantes(this.postesUsados,this.postesInsalados.cantidad),
+        preformados: calcPreformados(this.postesUsados,this.postesInsalados.cantidad),
+        cinta_bandi: calcCinta_bandi(this.postesUsados,this.postesInsalados.cantidad),
+        hebillas: calcHebillas(this.postesUsados,this.postesInsalados.cantidad),
+        mufa:{
+            cantidad: 0,
+            cordenadasMufas:{}
+        },
+        retenidasInstaladas:0
+    }
 
+}
 /* funciones  reutilizables*/
 const limitNext = () => (pag <= 1 ? pag++ : (pag = 2));
 const limitBack = () => (pag > 0 ? pag-- : (pag = 0));

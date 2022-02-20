@@ -82,17 +82,17 @@ const reporte = {
 const formulario = document.getElementById("formulario-1");
 btn1.addEventListener("click", () => {
   nextPag();
+});
+btn2.addEventListener("click", async () => {
+  nextPag();
   reporte.titulo = formulario.querySelector("#titulo").value;
   reporte.fecha = formulario.querySelector("#fecha").value;
-  reporte.ruta = formulario.querySelector("#ruta").value;
+  reporte.ruta = formulario.querySelector("#ruta").value.toUpperCase();
   reporte.plan = formulario.querySelector("#tipo-plan").value;
   reporte.distancia = formulario.querySelector("#distancia").value;
   reporte.metrajeCable["inicio"] = formulario.querySelector("#inicio").value;
   reporte.metrajeCable["final"] = formulario.querySelector("#final").value;
   reporte.postesUsados = calcPostes(reporte.distancia);
-});
-btn2.addEventListener("click", async () => {
-  nextPag();
   report_area.innerText = "";
   reporte.ferreteria["pasantes"] = calcPasantes(
     reporte.postesUsados,
@@ -118,7 +118,7 @@ btn2.addEventListener("click", async () => {
   report_area.value = `${reporte.titulo} ${reporte.fecha}
 Ruta de Despliegue: ${reporte.ruta} ${reporte.plan}
 Distancia: ${reporte.distancia} m
-Inicio: ${reporte.metrajeCable["inicio"]}m Final:${reporte.metrajeCable["final"]}m
+Inicio: ${reporte.metrajeCable["inicio"]}m Final:${reporte.metrajeCable["final"]} m
 Cantidad de Postes Utilizados: ${
   reporte.postesUsados + reporte.postesInstalados["cantidad"]
 }

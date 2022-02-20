@@ -80,11 +80,7 @@ const reporte = {
 };
 /* eventos */
 const formulario = document.getElementById("formulario-1");
-btn1.addEventListener("click", () => {
-  nextPag();
-});
-btn2.addEventListener("click", async () => {
-  nextPag();
+const hacerReporte = () => {
   reporte.titulo = formulario.querySelector("#titulo").value;
   reporte.fecha = formulario.querySelector("#fecha").value;
   reporte.ruta = formulario.querySelector("#ruta").value.toUpperCase();
@@ -118,10 +114,12 @@ btn2.addEventListener("click", async () => {
   report_area.value = `${reporte.titulo} ${reporte.fecha}
 Ruta de Despliegue: ${reporte.ruta} ${reporte.plan}
 Distancia: ${reporte.distancia} m
-Inicio: ${reporte.metrajeCable["inicio"]}m Final:${reporte.metrajeCable["final"]} m
+Inicio: ${reporte.metrajeCable["inicio"]}m Final:${
+    reporte.metrajeCable["final"]
+  } m
 Cantidad de Postes Utilizados: ${
-  reporte.postesUsados + reporte.postesInstalados["cantidad"]
-}
+    reporte.postesUsados + reporte.postesInstalados["cantidad"]
+  }
 Cantidad de Postes Instalados: ${reporte.postesInstalados["cantidad"]}
 Cantidad de Ferretería Instalada
 Opgw: ${reporte.ferreteria["opgw"]}
@@ -131,9 +129,14 @@ Preformados: ${reporte.ferreteria["preformados"]}
 Cinta Bandit: ${reporte.ferreteria["cinta_bandi"]} m
 Hebillas: ${reporte.ferreteria["hebillas"]}
 Cruceta: ${reporte.ferreteria["mufa"]["cantidad"]}
-Cantidad de Retenidas Instaladas: ${
-  reporte.ferreteria["retenidasInstaladas"]
-}`;
+Cantidad de Retenidas Instaladas: ${reporte.ferreteria["retenidasInstaladas"]}`;
+};
+btn1.addEventListener("click", () => {
+  nextPag();
+});
+btn2.addEventListener("click", () => {
+  nextPag();
+  hacerReporte();
 });
 btn_back.addEventListener("click", backPag);
 btn_edit.addEventListener("click", backPag);
@@ -171,6 +174,33 @@ const cantidad_ferreteria = {
     return acciones[accion](n);
   },
 };
+/* agregar input de item */
+const mostrarItemsInput=item=>{
+  if (item.id == "item-crucetas" || item.id == "item-postes_instalados") {
+  const name = item.id == 'item-crucetas' ? 'Mufa' : 'Poste';
+  const item_obj= item.id == 'item-crucetas' ? reporte.ferreteria.mufa.cordenadasMufas: reporte.postesInstalados.cordenadasPostes;
+  const cantidad= item.id == 'item-crucetas'? reporte.ferreteria.mufa.cantidad : reporte.postesInstalados.cantidad;
+  const container_items= item.querySelector('.container-datos-items');
+  container_items.innerHTML='';
+  for (let i = 1; i <= cantidad; i++) {
+    item_obj.hasOwnProperty(`${name}-${i}`) ? '': item_obj[`${name}-${i}`]= '';
+    container_items.innerHTML+=`                <div class="container_input-flotante input--item">
+    <input
+      type="text"
+      pattern="\\*+"
+      class="input-text"
+      id="item-unidad-${name}-${i}"
+      value='${item_obj[`${name}-${i}`]}'
+    />
+    <label for="item-unidad-${name}-${i}">${name} ${i}</label>
+    <button class="btn-close" id="btn-close">
+      <img src="./img/icons/icon-close.svg" alt="btn-close" />
+    </button>
+  </div>`
+  }
+  console.log(item,name,cantidad)
+}
+}
 /* aciones de botones items segun su id*/
 const acciones_items = {
   "btn-desplegar": (btn) => {
@@ -185,14 +215,14 @@ const acciones_items = {
     const items_nd = header_item_accion.querySelector("#unidades");
     /* opteniendo id del item */
     const item =
-      header_item_accion.parentElement.parentElement.parentElement.id;
+      header_item_accion.parentElement.parentElement.parentElement;
     /* ocultando boton agregar */
     btn.classList.add("d-none");
     /* mostrando botones de accion */
     header_item_accion.classList.remove("d-none");
     /* dando la cantidad de items */
-    items_nd.innerText = cantidad_ferreteria[item]("agregar");
-    if (item == "item-crucetas" || item == "item-postes_instalados") {
+    items_nd.innerText = cantidad_ferreteria[item.id]("agregar");
+    if (item.id == "item-crucetas" || item.id == "item-postes_instalados") {
       const header_item_desplegar = btn.parentElement;
       /* toggle para contraer y desplegar items */
       header_item_desplegar.classList.add("active");
@@ -200,6 +230,7 @@ const acciones_items = {
         .querySelector("#btn-desplegar")
         .classList.remove("d-none");
     }
+    mostrarItemsInput(item);
   },
   "btn-aumentar": (btn) => {
     /* constante de botones de accion */
@@ -210,12 +241,14 @@ const acciones_items = {
     const items_nd = header_item_accion.querySelector("#unidades");
     /* opteniendo id del item */
     const item =
-      header_item_accion.parentElement.parentElement.parentElement.id;
+      header_item_accion.parentElement.parentElement.parentElement;
     /* ocultando btn eliminar y mostrando boton disminuir */
     btn_eliminar.classList.add("d-none");
     btn_disminuir.classList.remove("d-none");
     /* dando la cantidad de items */
-    items_nd.innerText = cantidad_ferreteria[item]("agregar");
+    items_nd.innerText = cantidad_ferreteria[item.id]("agregar");
+    /* acciones para crusetas y postar_inst */
+    mostrarItemsInput(item);
   },
   "btn-disminuir": (btn) => {
     const header_item_accion = btn.parentElement;
@@ -223,19 +256,20 @@ const acciones_items = {
     const items_nd = header_item_accion.querySelector("#unidades");
     /* opteniendo id del item */
     const item =
-      header_item_accion.parentElement.parentElement.parentElement.id;
+      header_item_accion.parentElement.parentElement.parentElement;
     /* constante de botones */
     const btn_disminuir = header_item_accion.querySelector("#btn-disminuir");
     const btn_eliminar = header_item_accion.querySelector("#btn-eliminar");
     /* condicionales */
     if (parseInt(items_nd.innerText) >= 2) {
-      items_nd.innerText = cantidad_ferreteria[item]("eliminar");
+      items_nd.innerText = cantidad_ferreteria[item.id]("eliminar");
       if (parseInt(items_nd.innerText) == 1) {
         /* ocultando btn diminuir y mostrando boton eliminar */
         btn_disminuir.classList.add("d-none");
         btn_eliminar.classList.remove("d-none");
       }
     }
+    mostrarItemsInput(item);
   },
   "btn-eliminar": (btn) => {
     /* constante de botones de accion */
@@ -255,6 +289,9 @@ const acciones_items = {
     header_item_accion.classList.add("d-none");
     if (item == "item-crucetas" || item == "item-postes_instalados") {
       const header_item_desplegar = btn.parentElement;
+      const container_datos_item = header_item_desplegar.parentElement.parentElement.parentElement.querySelector('.container-datos-items');
+      /* vaciando items */
+      container_datos_item.innerHTML=''
       /* toggle para contraer y desplegar items */
       header_item_desplegar.classList.remove("active");
       header_item_desplegar.parentElement.parentElement

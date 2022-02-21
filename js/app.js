@@ -82,7 +82,6 @@ const reporte = {
 const formulario = document.getElementById("formulario-1");
 const hacerReporte = () => {
   /* limpiando el textArea */
-  report_area.innerText = "";
   /* tomando datos de los inputs y agregandolos a Objs.reporte */
   reporte.titulo = formulario.querySelector("#titulo").value;
   reporte.fecha = formulario.querySelector("#fecha").value;
@@ -113,7 +112,7 @@ const hacerReporte = () => {
     reporte.ferreteria["preformados"]
   );
   /* Mostrando el reporte en el textArea */
-  report_area.value = `${reporte.titulo} ${reporte.fecha}
+  report_area.value =`${reporte.titulo} ${reporte.fecha}
 Ruta de Despliegue: ${reporte.ruta} ${reporte.plan}
 Distancia: ${reporte.distancia} m
 Inicio: ${reporte.metrajeCable["inicio"]}m Final:${
@@ -132,6 +131,11 @@ Cinta Bandit: ${reporte.ferreteria["cinta_bandi"]} m
 Hebillas: ${reporte.ferreteria["hebillas"]}
 Cruceta: ${reporte.ferreteria["mufa"]["cantidad"]}
 Cantidad de Retenidas Instaladas: ${reporte.ferreteria["retenidasInstaladas"]}`;
+for(const item in reporte.ferreteria.mufa.cordenadasMufas){
+  console.log(item.toUpperCase().replace('-',' '))
+  report_area.value+= `
+${item.toUpperCase().replace('-',' ')}: ${reporte.ferreteria.mufa.cordenadasMufas[item]}`
+}
 };
 btn1.addEventListener("click", () => {
   nextPag();

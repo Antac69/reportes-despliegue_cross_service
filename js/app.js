@@ -81,6 +81,9 @@ const reporte = {
 /* eventos */
 const formulario = document.getElementById("formulario-1");
 const hacerReporte = () => {
+  /* limpiando el textArea */
+  report_area.innerText = "";
+  /* tomando datos de los inputs y agregandolos a Objs.reporte */
   reporte.titulo = formulario.querySelector("#titulo").value;
   reporte.fecha = formulario.querySelector("#fecha").value;
   reporte.ruta = formulario.querySelector("#ruta").value.toUpperCase();
@@ -89,7 +92,6 @@ const hacerReporte = () => {
   reporte.metrajeCable["inicio"] = formulario.querySelector("#inicio").value;
   reporte.metrajeCable["final"] = formulario.querySelector("#final").value;
   reporte.postesUsados = calcPostes(reporte.distancia);
-  report_area.innerText = "";
   reporte.ferreteria["pasantes"] = calcPasantes(
     reporte.postesUsados,
     reporte.postesInstalados["cantidad"]
@@ -110,7 +112,7 @@ const hacerReporte = () => {
     reporte.ferreteria["pasantes"],
     reporte.ferreteria["preformados"]
   );
-
+  /* Mostrando el reporte en el textArea */
   report_area.value = `${reporte.titulo} ${reporte.fecha}
 Ruta de Despliegue: ${reporte.ruta} ${reporte.plan}
 Distancia: ${reporte.distancia} m
@@ -156,15 +158,15 @@ const cantidad_ferreteria = {
   "item-crucetas": (accion) => {
     const n = reporte.ferreteria.mufa.cantidad;
     /* limite */
-    if(n < 5){
-      reporte.ferreteria.mufa.cantidad = acciones[accion](n)
-      return acciones[accion](n)
-    }else{
-      if(accion == "eliminar"){
-        reporte.ferreteria.mufa.cantidad = acciones[accion](n)
-        return acciones[accion](n)
+    if (n < 5) {
+      reporte.ferreteria.mufa.cantidad = acciones[accion](n);
+      return acciones[accion](n);
+    } else {
+      if (accion == "eliminar") {
+        reporte.ferreteria.mufa.cantidad = acciones[accion](n);
+        return acciones[accion](n);
       }
-      return 5
+      return 5;
     }
   },
   "item-postes_instalados": (accion) => {
@@ -184,32 +186,30 @@ const cantidad_ferreteria = {
   },
 };
 /* agregar input de item */
-const mostrarItemsInput=item=>{
+const mostrarItemsInput = (item) => {
   if (item.id == "item-crucetas") {
-  const name = 'Mufa' ;
-  const item_obj=  reporte.ferreteria.mufa.cordenadasMufas;
-  const cantidad=  reporte.ferreteria.mufa.cantidad;
-  const container_items= item.querySelector('.container-datos-items');
-  container_items.innerHTML='';
-  for (let i = 1; i <= cantidad; i++) {
-    item_obj.hasOwnProperty(`${name}-${i}`) ? '': item_obj[`${name}-${i}`]= '';
-    container_items.innerHTML+=`                <div class="container_input-flotante input--item">
+    const item_obj = reporte.ferreteria.mufa.cordenadasMufas;
+    const container_items = item.querySelector(".container-datos-items");
+    container_items.innerHTML = "";
+    for (const item in reporte.ferreteria.mufa.cordenadasMufas) {
+      const i = Object.keys(reporte.ferreteria.mufa.cordenadasMufas).indexOf(item) + 1;
+      container_items.innerHTML += `                <div class="container_input-flotante input--item">
     <input
       type="text"
       pattern="\\*+"
       class="input-text"
-      id="item-unidad-${name}-${i}"
-      value='${item_obj[`${name}-${i}`]}'
+      id="item-unidad-${item}"
+      value='${item_obj[`${item}`]}'
     />
-    <label for="item-unidad-${name}-${i}">${name} ${i}</label>
-    <button class="btn-close" id="btn-close">
+    <label for="item-unidad-${item}">${item}</label>
+    <button class="btn-close" id="btn-close" data-id='${item}'>
       <img src="./img/icons/icon-close.svg" alt="btn-close" />
     </button>
-  </div>`
+  </div>`;
+    }
+    /*   console.log(item,name,cantidad) */
   }
-/*   console.log(item,name,cantidad) */
-}
-}
+};
 /* aciones de botones items segun su id*/
 const acciones_items = {
   "btn-desplegar": (btn) => {
@@ -223,8 +223,7 @@ const acciones_items = {
     /* definiendo cantidad */
     const items_nd = header_item_accion.querySelector("#unidades");
     /* opteniendo id del item */
-    const item =
-      header_item_accion.parentElement.parentElement.parentElement;
+    const item = header_item_accion.parentElement.parentElement.parentElement;
     /* ocultando boton agregar */
     btn.classList.add("d-none");
     /* mostrando botones de accion */
@@ -238,6 +237,7 @@ const acciones_items = {
       header_item_desplegar.parentElement.parentElement
         .querySelector("#btn-desplegar")
         .classList.remove("d-none");
+      reporte.ferreteria.mufa.cordenadasMufas['Mufa-1']= '';
     }
     mostrarItemsInput(item);
   },
@@ -249,23 +249,25 @@ const acciones_items = {
     /* definiendo cantidad */
     const items_nd = header_item_accion.querySelector("#unidades");
     /* opteniendo id del item */
-    const item =
-      header_item_accion.parentElement.parentElement.parentElement;
+    const item = header_item_accion.parentElement.parentElement.parentElement;
     /* ocultando btn eliminar y mostrando boton disminuir */
     btn_eliminar.classList.add("d-none");
     btn_disminuir.classList.remove("d-none");
     /* dando la cantidad de items */
     items_nd.innerText = cantidad_ferreteria[item.id]("agregar");
     /* acciones para crusetas y postar_inst */
+    if (item.id == "item-crucetas") {
+      let i = reporte.ferreteria.mufa.cantidad;
+      reporte.ferreteria.mufa.cordenadasMufas[`Mufa-${i}`]= '';
+    }
     mostrarItemsInput(item);
   },
-  "btn-disminuir": (btn) => {
+  "btn-disminuir": (btn,id) => {
     const header_item_accion = btn.parentElement;
     /* definiendo cantidad de items*/
     const items_nd = header_item_accion.querySelector("#unidades");
     /* opteniendo id del item */
-    const item =
-      header_item_accion.parentElement.parentElement.parentElement;
+    const item = header_item_accion.parentElement.parentElement.parentElement;
     /* constante de botones */
     const btn_disminuir = header_item_accion.querySelector("#btn-disminuir");
     const btn_eliminar = header_item_accion.querySelector("#btn-eliminar");
@@ -277,6 +279,12 @@ const acciones_items = {
         btn_disminuir.classList.add("d-none");
         btn_eliminar.classList.remove("d-none");
       }
+    }
+    if (item.id == "item-crucetas") {
+      let i = reporte.ferreteria.mufa.cantidad + 1;
+      console.log(reporte.ferreteria.mufa.cordenadasMufas)
+      id ? delete reporte.ferreteria.mufa.cordenadasMufas[id]:
+      delete reporte.ferreteria.mufa.cordenadasMufas[`Mufa-${i}`];
     }
     mostrarItemsInput(item);
   },
@@ -298,19 +306,45 @@ const acciones_items = {
     header_item_accion.classList.add("d-none");
     if (item == "item-crucetas") {
       const header_item_desplegar = btn.parentElement;
-      const container_datos_item = header_item_desplegar.parentElement.parentElement.parentElement.querySelector('.container-datos-items');
+      const container_datos_item =
+        header_item_desplegar.parentElement.parentElement.parentElement.querySelector(
+          ".container-datos-items"
+        );
       /* vaciando items */
-      container_datos_item.innerHTML=''
+      container_datos_item.innerHTML = "";
       /* toggle para contraer y desplegar items */
       header_item_desplegar.classList.remove("active");
       header_item_desplegar.parentElement.parentElement
         .querySelector("#btn-desplegar")
         .classList.add("d-none");
+      /* eliminando item  */
+        delete reporte.ferreteria.mufa.cordenadasMufas[`Mufa-1`];
     }
   },
 };
 
 /* agregando eventos los botones del formulario2 con event delegation */
+/* botones de input tex del item mufa */
+const container_items = document.querySelector('.container-datos-items');
+container_items.addEventListener("input", (e)=>{
+  const item_input = {
+    elemento: e.target,
+    name:e.target.id.replace('item-unidad-','')
+  }
+  /* agregar dato al reporte*/
+  reporte.ferreteria.mufa.cordenadasMufas[item_input.name] = item_input.elemento.value
+}
+)
+/* Eliminar elemento */
+const eliminar_item = btn=> {
+  if(btn.name == 'btn-close'){
+    const id = btn.elemento.dataset.id
+    const btn_dis = btn.elemento.parentElement.parentElement.parentElement.querySelector('#btn-disminuir')
+    console.log(btn_dis)
+    acciones_items["btn-disminuir"](btn_dis,id)
+  }
+}
+/* botones de accion de cada item */
 items_container.forEach((e) => {
   e.addEventListener("click", (e) => {
     const btn = {
@@ -319,6 +353,6 @@ items_container.forEach((e) => {
     };
     acciones_items[btn.name]
       ? acciones_items[btn.name](btn.elemento)
-      : console.log(btn.name);
+      : eliminar_item(btn);
   });
 });

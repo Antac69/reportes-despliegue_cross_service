@@ -329,7 +329,7 @@ input[type="number"]:focus + label {
 }
 
 .container-items .item.active + .container-datos-items {
-  top: 100%;
+  top: 0;
   opacity: 1;
   position: relative;
   z-index: initial;
@@ -407,8 +407,8 @@ input[type="number"]:focus + label {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 1rem;
-  position: absolute;
-  top: 0;
+  position: relative;
+  top: -56px;
   right: 0;
   left: 0;
   opacity: 0;

@@ -155,8 +155,17 @@ const acciones = {
 const cantidad_ferreteria = {
   "item-crucetas": (accion) => {
     const n = reporte.ferreteria.mufa.cantidad;
-    reporte.ferreteria.mufa.cantidad = acciones[accion](n);
-    return acciones[accion](n);
+    /* limite */
+    if(n < 5){
+      reporte.ferreteria.mufa.cantidad = acciones[accion](n)
+      return acciones[accion](n)
+    }else{
+      if(accion == "eliminar"){
+        reporte.ferreteria.mufa.cantidad = acciones[accion](n)
+        return acciones[accion](n)
+      }
+      return 5
+    }
   },
   "item-postes_instalados": (accion) => {
     const n = reporte.postesInstalados.cantidad;
@@ -176,10 +185,10 @@ const cantidad_ferreteria = {
 };
 /* agregar input de item */
 const mostrarItemsInput=item=>{
-  if (item.id == "item-crucetas" || item.id == "item-postes_instalados") {
-  const name = item.id == 'item-crucetas' ? 'Mufa' : 'Poste';
-  const item_obj= item.id == 'item-crucetas' ? reporte.ferreteria.mufa.cordenadasMufas: reporte.postesInstalados.cordenadasPostes;
-  const cantidad= item.id == 'item-crucetas'? reporte.ferreteria.mufa.cantidad : reporte.postesInstalados.cantidad;
+  if (item.id == "item-crucetas") {
+  const name = 'Mufa' ;
+  const item_obj=  reporte.ferreteria.mufa.cordenadasMufas;
+  const cantidad=  reporte.ferreteria.mufa.cantidad;
   const container_items= item.querySelector('.container-datos-items');
   container_items.innerHTML='';
   for (let i = 1; i <= cantidad; i++) {
@@ -198,7 +207,7 @@ const mostrarItemsInput=item=>{
     </button>
   </div>`
   }
-  console.log(item,name,cantidad)
+/*   console.log(item,name,cantidad) */
 }
 }
 /* aciones de botones items segun su id*/
@@ -222,7 +231,7 @@ const acciones_items = {
     header_item_accion.classList.remove("d-none");
     /* dando la cantidad de items */
     items_nd.innerText = cantidad_ferreteria[item.id]("agregar");
-    if (item.id == "item-crucetas" || item.id == "item-postes_instalados") {
+    if (item.id == "item-crucetas") {
       const header_item_desplegar = btn.parentElement;
       /* toggle para contraer y desplegar items */
       header_item_desplegar.classList.add("active");
@@ -287,7 +296,7 @@ const acciones_items = {
       .classList.remove("d-none");
     /* mostrando botones de accion */
     header_item_accion.classList.add("d-none");
-    if (item == "item-crucetas" || item == "item-postes_instalados") {
+    if (item == "item-crucetas") {
       const header_item_desplegar = btn.parentElement;
       const container_datos_item = header_item_desplegar.parentElement.parentElement.parentElement.querySelector('.container-datos-items');
       /* vaciando items */

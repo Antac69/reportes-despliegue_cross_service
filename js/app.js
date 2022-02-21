@@ -49,6 +49,16 @@ const copiarPortapapeles = () => {
   btn_save.focus();
 };
 /* constante reporte */
+const formatearFecha=()=>{
+  let fecha = []
+  reporte.fecha.replaceAll('-','-/-').split('-').forEach(e=> fecha.push(e))
+  fecha
+  let newFecha = ''
+  for(let i = fecha.length -1;i>=0;i--){
+      newFecha +=fecha[i]
+  }
+  reporte.fecha = newFecha
+}
 const reporte = {
   titulo: "",
   fecha: "",
@@ -85,6 +95,7 @@ const hacerReporte = () => {
   /* tomando datos de los inputs y agregandolos a Objs.reporte */
   reporte.titulo = formulario.querySelector("#titulo").value;
   reporte.fecha = formulario.querySelector("#fecha").value;
+  formatearFecha();
   reporte.ruta = formulario.querySelector("#ruta").value.toUpperCase();
   reporte.plan = formulario.querySelector("#tipo-plan").value;
   reporte.distancia = formulario.querySelector("#distancia").value;

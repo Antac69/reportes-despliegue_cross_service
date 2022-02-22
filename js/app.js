@@ -12,7 +12,7 @@ let pag = 0;
 /* reporte */
 /* funciones  reutilizables*/
 /* calculos de reporte */
-const calcPostes = (distancia) => Math.ceil(distancia / 35.6);
+const calcPostes = (distancia) => Math.ceil(distancia / 35);
 const calcClevis = (pasantes, preformados) =>
   Math.ceil(pasantes + preformados * 2);
 const calcPasantes = (postesUsa, postesInsta = 0) =>
@@ -20,7 +20,7 @@ const calcPasantes = (postesUsa, postesInsta = 0) =>
 const calcPreformados = (postesUsa, postesInsta = 0) =>
   Math.ceil((postesUsa + postesInsta) * 0.6 * 2);
 const calcCinta_bandi = (postesUsa, postesInsta = 0) => {
-  const options = [1.1, 1.4, 1.5];
+  const options = [1.02, 1.4, 1.5];
   /* var rand = Math.floor(Math.random() * options.length); */
   /* var grosor = Math.floor(options[rand]); */
   return Math.floor((postesUsa + postesInsta) * options[0]);

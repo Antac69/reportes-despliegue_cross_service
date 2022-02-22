@@ -21,9 +21,9 @@ const calcPreformados = (postesUsa, postesInsta = 0) =>
   Math.ceil((postesUsa + postesInsta) * 0.6 * 2);
 const calcCinta_bandi = (postesUsa, postesInsta = 0) => {
   const options = [1.1, 1.4, 1.5];
-  var rand = Math.floor(Math.random() * options.length);
-  var grosor = Math.ceil(options[rand]);
-  return (postesUsa + postesInsta) * grosor;
+  /* var rand = Math.floor(Math.random() * options.length); */
+  /* var grosor = Math.floor(options[rand]); */
+  return Math.floor((postesUsa + postesInsta) * options[0]);
 };
 const calcHebillas = (postesUsa, postesInsta = 0) =>
   (postesUsa + postesInsta) * 2;

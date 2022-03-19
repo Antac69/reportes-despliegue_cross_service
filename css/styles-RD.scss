@@ -324,6 +324,7 @@ select {
 /* input text area reporte final */
 .container_textArea-flotante {
   height: 100%;
+  position: relative;
 }
 textarea {
   width: calc(100% - 1.5rem);

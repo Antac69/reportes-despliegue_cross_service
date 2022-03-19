@@ -5,10 +5,20 @@ const btn1 = document.getElementById("btn1");
 const btn2 = document.getElementById("btn2");
 const btn_back = document.getElementById("btn-retro");
 const btn_edit = document.getElementById("btn-editar");
-const btn_save = document.getElementById("btn-save");
+const btn_copy = document.getElementById("btn-copy");
 const report_area = document.getElementById("reporte");
 const items_container = document.querySelectorAll(".container-items");
 let pag = 0;
+/* crear boton de guardar */
+const btn_save = document.createElement('button')
+btn_save.classList.add('btn_save')
+btn_save.classList.add('btn-ter')
+btn_save.id = 'btn_save';
+btn_save.innerHTML = `<img src='/img/icons/incon-download--dark.svg'/>`
+btn_save.style.position = 'absolute';
+btn_save.style.top = '.5rem';
+btn_save.style.right = '.5rem';
+report_area.parentElement.appendChild(btn_save)
 /* reporte */
 /* funciones  reutilizables*/
 /* calculos de reporte */
@@ -46,7 +56,7 @@ const backPag = () => {
 const copiarPortapapeles = () => {
   report_area.select();
   document.execCommand("copy");
-  btn_save.focus();
+  btn_copy.focus();
 };
 /* constante reporte */
 const formatearFecha=()=>{
@@ -157,7 +167,7 @@ btn2.addEventListener("click", () => {
 });
 btn_back.addEventListener("click", backPag);
 btn_edit.addEventListener("click", backPag);
-btn_save.addEventListener("click", copiarPortapapeles);
+btn_copy.addEventListener("click", copiarPortapapeles);
 /* funciones de cantidad de ferreteria */
 const acciones = {
   agregar: (n) => {
@@ -371,3 +381,21 @@ items_container.forEach((e) => {
       : eliminar_item(btn);
   });
 });
+function exportar(data,fileName){
+  const a = document.createElement("a");
+  const contenido = data,
+    blob = new Blob([contenido],{type:"octect/stream"}),
+    url = window.URL.createObjectURL(blob);
+  a.href =url
+  a.download = fileName;
+  a.download= fileName;
+  a.click();
+  window.URL.revokeObjectURL(url);
+}
+btn_save.onclick=()=>{
+  const data = report_area.value;
+  const plan = reporte.plan.replaceAll(' ','_')
+  const extension = '.txt'
+  const nombreArchivo = `${reporte.ruta}_${plan}${extension}`
+  exportar(data,nombreArchivo)
+}

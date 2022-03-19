@@ -443,6 +443,7 @@ select + label {
 /* input text area reporte final */
 .container_textArea-flotante {
   height: 100%;
+  position: relative;
 }
 
 textarea {

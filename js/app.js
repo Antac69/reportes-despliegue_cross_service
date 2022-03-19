@@ -14,7 +14,7 @@ const btn_save = document.createElement('button')
 btn_save.classList.add('btn_save')
 btn_save.classList.add('btn-ter')
 btn_save.id = 'btn_save';
-btn_save.innerHTML = `<img src='/img/icons/incon-download--dark.svg'/>`
+btn_save.innerHTML = `<img src='./img/icons/incon-download--dark.svg'/>`
 btn_save.style.position = 'absolute';
 btn_save.style.top = '.5rem';
 btn_save.style.right = '.5rem';

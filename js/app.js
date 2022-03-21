@@ -22,7 +22,7 @@ report_area.parentElement.appendChild(btn_save)
 /* reporte */
 /* funciones  reutilizables*/
 /* calculos de reporte */
-const calcPostes = (distancia) => Math.ceil(distancia / 35);
+const calcPostes = (distancia) => Math.ceil(distancia / 38);
 const calcClevis = (pasantes, preformados) =>
   Math.ceil(pasantes + preformados * 2);
 const calcPasantes = (postesUsa, postesInsta = 0) =>

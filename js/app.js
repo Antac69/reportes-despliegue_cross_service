@@ -128,10 +128,10 @@ const hacerReporte = () => {
     reporte.postesUsados,
     reporte.postesInstalados["cantidad"]
   );
-  reporte.ferreteria["clevis"] = calcClevis(
+  reporte.ferreteria["clevis"] = reporte.ferreteria["hebillas"]/* calcClevis(
     reporte.ferreteria["pasantes"],
     reporte.ferreteria["preformados"]
-  );
+  ); */
   /* Mostrando el reporte en el textArea */
   report_area.value =`${reporte.titulo} ${reporte.fecha}
 Ruta de Despliegue: ${reporte.ruta} ${reporte.plan}
